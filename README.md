@@ -1,4 +1,4 @@
-# beamerthementnu
+# beamer-theme-ntnu
 A LaTeX beamer theme for NTNU presentation templates
 
 ## Overview

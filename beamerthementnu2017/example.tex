@@ -1,7 +1,6 @@
 \documentclass[screen, aspectratio=43]{beamer}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-
 \usepackage{xcolor}
 \usepackage{listings}
 
@@ -10,6 +9,8 @@
     } % gfcb := gray fcolorbox
 
 \usepackage{pgfpages}
+
+% Notes page for presentation with pympress
 \setbeamertemplate{note page}[plain]
 \setbeameroption{show notes on second screen=right}
 
@@ -17,7 +18,8 @@
 % \usetheme[style=ntnu|simple|vertical|horizontal, 
 %     language=bm|nn|en, smalltitle, 
 %     city=all|trondheim|alesund|gjovik]{ntnu2017}
-\usetheme[style=ntnu,language=en]{ntnu2017}
+\usetheme[style=vertical,language=en]{ntnu2017}
+
 
 \usepackage[english]{babel}
 \usepackage[style=numeric,backend=biber,natbib=false,sorting=none]{biblatex}
@@ -132,8 +134,8 @@
       \item Labels and all Figures must appear with text reference
   \end{itemize}    
     
-    \note{\\
-    \\
+    \note{
+    
     }
 
 \end{frame}
@@ -153,8 +155,8 @@
       \item Can use multiple .bib files
   \end{itemize}
   
-    \note{\\
-   \\
+    \note{
+   
     }
 
 \end{frame}
@@ -173,8 +175,27 @@
       \item Including Latex math in charts
   \end{itemize}
   
-    \note{\\
-   \\
+    \note{
+  
+    }
+
+\end{frame}
+
+%-----------------------------------------
+\begin{frame}
+  \frametitle{Gnuplot}
+  
+  
+
+\begin{figure}[htp]  %t top, b bottom, p page | you can also use h to try to get the figure to appear at the current location
+  \centering
+  \scalebox{.7}{\input{figures/gnuplotgraph1}}
+  \caption[An example graph.]{This is a gnuplot graph of $y=\sin(x)$. Notice how the \LaTeX{} fonts are preserved in the graph. This is done using gnuplot and the simple text file included in the sample template.}
+  \label{fig:exgnuplotex}
+\end{figure}
+
+    \note{
+  
     }
 
 \end{frame}
@@ -201,8 +222,7 @@ if x == 1:
   \label{fig:PythonCode}
 \end{figure}
 
-    \note{\\
-   \\
+    \note{
     }
 
 \end{frame}
@@ -234,8 +254,8 @@ The best reason for Latex is the handling of math $4x = 48 $.
   \label{tab:examplecsv}
 \end{table}
   
-    \note{\\
-   \\
+    \note{
+   
     }
 
 \end{frame}
@@ -252,6 +272,26 @@ The best reason for Latex is the handling of math $4x = 48 $.
   \end{proof}
 \end{frame}
 
+
+%-----------------------------------------
+\begin{frame}
+  \frametitle{Tools}
+  \begin{itemize}
+      \item ShareLatex
+      \item JabRef
+      \item Web of Knowldge   
+      \item gnuplot
+      \item Doxygen
+      \item scripting and Makefiles
+      \item \detokenize{\newcommand{}}
+      \item Creating your own latex output text
+  \end{itemize}
+  
+    \note{
+  
+    }
+
+\end{frame}
 
 %-----------------------------------------
 \begin{frame}

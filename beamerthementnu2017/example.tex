@@ -10,15 +10,18 @@
 
 \usepackage{pgfpages}
 
+\usepackage{gnuplottex} %miktex option if using miktex on windows
+
 % Notes page for presentation with pympress
 \setbeamertemplate{note page}[plain]
+%Comment the next line out for standard pdf without notes
 \setbeameroption{show notes on second screen=right}
 
 % Use the NTNU-temaet for beamer 
 % \usetheme[style=ntnu|simple|vertical|horizontal, 
 %     language=bm|nn|en, smalltitle, 
 %     city=all|trondheim|alesund|gjovik]{ntnu2017}
-\usetheme[style=vertical,language=en]{ntnu2017}
+\usetheme[style=simple,language=en]{ntnu2017}
 
 
 \usepackage[english]{babel}
@@ -27,8 +30,8 @@
 
 \usepackage{booktabs}
 
-\title[Latex Presentations]{How to create Latex Presentations at NTNU}
-\subtitle{Using Beamer class}
+\title[Latex Document]{Why use Latex to create \\Documents at NTNU}
+\subtitle{Using the Beamer class}
 \author[S. McCallum]{Simon McCallum}
 \institute[NTNU]{Department of Computer Sciences, NTNU}
 \date{04 October 2017}
@@ -61,7 +64,8 @@
       \item Learn Latex in 30 minutes: \url{https://www.sharelatex.com/learn/Learn_LaTeX_in_30_minutes}
       \item Markup language based on describing content
       \item Uses a container "begin" and "end" model for describing behaviour.
-      
+      \item Numbering things, referencing things, deciding where things go?
+      \item Your tool influences your focus
   \end{itemize}
     \note{Discuss links to learning on the Sharelatex in 30 minutes\\
     Give examples of markup languages like HTML\\
@@ -70,14 +74,15 @@
 
 %-----------------------------------------
 \begin{frame}
-  \frametitle{Thesis Template}
+  \frametitle{Formatting}
   \begin{itemize}
-      \item Github - \url{https://github.com/COPCSE-NTNU}
-      \item Masters Thesis, Bachelor Thesis, Beamer (this), and Poster
-      \item Provides the layout - DAIM vs Non DAIM
-      \item Select your degree short name and language
-      \item Includes some macros, \detokenize{\CPP}, \detokenize{\todo} and \detokenize{\com}
-      \item 
+      \item You are unlikely to be an expert at layout
+      \item Journals, Conferences have required formats
+      \item Web content - CSS changes display of HTML
+      \item Citation formats - so many standards!
+      \item Contents page, Appendix, References, Abstracts ........
+      \item Invest time early to save time later.
+     
   \end{itemize}
 
 \end{frame}
@@ -85,28 +90,27 @@
 
 %-----------------------------------------
 \begin{frame}
-  \frametitle{Thesis Template - Data}
+  \frametitle{Sharing}
   \begin{itemize}
-      \item Submission data is given in DAIM webpage
-      \item Generating your own - add the content to \gfcb{DaimData.tex}
-      \item Generate PDF with \\ \gfcb{\detokenize{\documentclass[MACS,english,DAIM]{ntnuthesis/ntnuthesis}}}
-      \item Pretty B5 book cover page
-      \item Can include image on the automated system, future feature 
+      \item ShareLatex - like google docs for latex
+      \item Save as text files - easy sharing
+      \item Works with version control tools
+      \item No hidden content in your editor
+      \item Write in separate text files
+      \item Your words express your thoughts - your thoughts are important!
+     
   \end{itemize}
-  
-    \note{Web based summission\\
-   B5 for cost saving on colour printing\\
-    }
+
 \end{frame}
 
 %-----------------------------------------
 \begin{frame}
   \frametitle{Including files}
   \begin{itemize}
-      \item Use file system structure to help you.
-      \item Include tex files by path and name
-      \item \gfcb{\detokenize{\include{inc/structure}}}
+      \item Include many tex files by name
       \item allows logical separation of content
+      \item Use file system structure to help you.
+      \item \gfcb{\detokenize{\include{inc/structure}}}
       \item compile only parts of the document
       \item create reusable content
   \end{itemize}
@@ -115,23 +119,23 @@
    examples\\
     }
 \end{frame}
-
 %-----------------------------------------
 \begin{frame}
   \frametitle{Including Images}
    \noindent
  \parbox[t]{.75\textwidth}{
   \begin{itemize}
-      \item Standard figure includes
-      \item Should be in figure environment
+      \item Standard figure includes - do the tutorial
+      \item Numbering figures so you can refer to them
+      \item Using the figure environment
   \end{itemize}}
-   \hfill
+     \hfill
        \raisebox{-.5\height}{
-    \includegraphics[width=.2\textwidth]{beamerthementnu2017/figures/kart_student}}
+     \includegraphics[width=.2\textwidth]{beamerthementnu2017/figures/kart_student}}
   \begin{itemize}
-      \item \gfcb{\detokenize{\includegraphics[width=.2\textwidth]{figures/kart_student}}}
       \item include \gfcb{\detokenize{\caption[short text contents page]{text...}}}
-      \item Labels and all Figures must appear with text reference
+      \item All Figures must appear with text reference
+      \item \gfcb{\detokenize{\includegraphics[width=.2\textwidth]{figures/kart_student}}}
   \end{itemize}    
     
     \note{
@@ -145,14 +149,16 @@
 \begin{frame}
   \frametitle{Citations}
   \begin{itemize}
-      \item Using bibtex important
-      \item record abstracts and notes next to reference
-      \item Two styles Harvard and Vancouver.  
+      \item Using .bib file to store information
+      \item Download bibtex format from online paper Databases
+      \item Record abstracts and notes next to reference
+      \item Uses the id from the bibtex file
+      \item Can use multiple .bib files
+      
+      \item Two styles at NTNU, Harvard and Vancouver.  
       \detokenize{\setboolean{HarvardCitations}{false}} 
       \item CS uses Vancouver and so you set Harvard to false
       \item \gfcb{\detokenize{~\cite{Askvall1985}}}
-      \item Uses the id from the bibtex file
-      \item Can use multiple .bib files
   \end{itemize}
   
     \note{
@@ -161,6 +167,19 @@
 
 \end{frame}
 
+%-----------------------------------------
+\begin{frame}[fragile]
+  \frametitle{Citations}
+
+  \begin{lstlisting}[breaklines]
+  @misc{latex2005,
+  title={A beginner’s introduction to typesetting with LATEX},
+  author={Flynn, Peter},
+  year={2005},
+  url={http://ctan.ijs.si/tex-archive/documentation/beginlatex/src/old/beginlatex.letter.pdf}
+  \end{lstlisting}
+
+\end{frame}
 
 %-----------------------------------------
 \begin{frame}
@@ -228,21 +247,26 @@ if x == 1:
 \end{frame}
 
 %-----------------------------------------
-\begin{frame}{Math}
-The best reason for Latex is the handling of math $4x = 48 $.
+\begin{frame}
+\frametitle{Math}
+If you need math there is almost not other option than Latex for handling of equations $4x = 48 $. You can refer to then as Equation~\ref{H0mean} and Equation~\ref{sum}
 \begin{equation} 
 \label{H0mean}
     H_0 : \mu_1 = \mu_2
 \end{equation}
+\begin{equation} 
+\label{sum}
+    \sum_{n=1}^{\infty} 2^{-n} = 1
+\end{equation}
+refer to label not by number!
 \end{frame}
-
 
 %-----------------------------------------
 \begin{frame}[fragile]
   \frametitle{Tables}
   \begin{itemize}
       \item Tables are annoying in Latex
-      \item We use booktables
+      \item However we use booktables - to read from file
       \item \gfcb{\detokenize{\csvautobooktabular{figures/ageiq.csv}}}  
       \item Use tables when text will not do
   \end{itemize}
@@ -254,11 +278,15 @@ The best reason for Latex is the handling of math $4x = 48 $.
   \label{tab:examplecsv}
 \end{table}
   
+  
     \note{
-   
+
     }
 
 \end{frame}
+
+
+
 
 %-----------------------------------------
 \begin{frame}
@@ -268,9 +296,44 @@ The best reason for Latex is the handling of math $4x = 48 $.
   \end{theorem}
 
   \begin{proof}
-    For details, see Flynn~\cite{latex}.
+    For details, see Flynn~\cite{latex2005}. \cite{tarlo2001outcomes}
   \end{proof}
 \end{frame}
+
+
+
+%-----------------------------------------
+\begin{frame}
+  \frametitle{Thesis Template}
+  \begin{itemize}
+      \item Github - \url{https://github.com/COPCSE-NTNU}
+      \item Masters Thesis, Bachelor Thesis, Beamer (this), and Poster
+      \item Provides the layout - DAIM vs Non DAIM
+      \item Select your degree short name and language
+      \item Includes some macros, \detokenize{\CPP}, \detokenize{\todo} and \detokenize{\com}
+     
+  \end{itemize}
+
+\end{frame}
+
+
+%-----------------------------------------
+\begin{frame}
+  \frametitle{Thesis Template - Data}
+  \begin{itemize}
+      \item Submission data is given in DAIM webpage
+      \item Generating your own - add the content to \gfcb{DaimData.tex}
+      \item Generate PDF with \\ \gfcb{\detokenize{\documentclass[MACS,english,DAIM]{ntnuthesis/ntnuthesis}}}
+      \item Pretty B5 book cover page
+      \item Can include image on the automated system, future feature 
+  \end{itemize}
+  
+    \note{Web based submission\\
+   B5 for cost saving on colour printing\\
+    }
+\end{frame}
+
+
 
 
 %-----------------------------------------
@@ -279,12 +342,12 @@ The best reason for Latex is the handling of math $4x = 48 $.
   \begin{itemize}
       \item ShareLatex
       \item JabRef
-      \item Web of Knowldge   
+      \item Web of Knowldge, Google Scholar,...
       \item gnuplot
       \item Doxygen
-      \item scripting and Makefiles
       \item \detokenize{\newcommand{}}
-      \item Creating your own latex output text
+      \item Creating your own latex output text from programs
+      \item pympress - for presentation of the PDF in a nice way
   \end{itemize}
   
     \note{

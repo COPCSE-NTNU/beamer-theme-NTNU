@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{xcolor}
 \usepackage{listings}
+\newcommand{\CPP}[0]{{C\nolinebreak[4]\hspace{-.1em}\raisebox{.1ex}{\small\bf +\hspace{-.1em}+\ }}}
 
 \newcommand{\gfcb}[1]{%
     \fcolorbox{white}{gray!10!}{\quad\strut #1\quad}
@@ -34,7 +35,7 @@
 \subtitle{Using the Beamer class}
 \author[S. McCallum]{Simon McCallum}
 \institute[NTNU]{Department of Computer Sciences, NTNU}
-\date{04 October 2017}
+\date{06 April 2020}
 %\date{} % To have an empty date
 
 \addbibresource{example.bib} % Add bibliography database
@@ -61,13 +62,13 @@
   \frametitle{Content vs Style}
   \begin{itemize}
       \item {\LaTeX} deals with formatting so you don't have to.
-      \item Learn Latex in 30 minutes: \url{https://www.sharelatex.com/learn/Learn_LaTeX_in_30_minutes}
-      \item Markup language based on describing content
+      \item Learn Latex in 30 minutes: \url{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}
+      \item Markup language based on describing \emph{content}
       \item Uses a container "begin" and "end" model for describing behaviour.
       \item Numbering things, referencing things, deciding where things go?
       \item Your tool influences your focus
   \end{itemize}
-    \note{Discuss links to learning on the Sharelatex in 30 minutes\\
+    \note{Discuss links to learning on the Overleaf in 30 minutes\\
     Give examples of markup languages like HTML\\
     Separation of display and content}
 \end{frame}
@@ -82,9 +83,7 @@
       \item Citation formats - so many standards!
       \item Contents page, Appendix, References, Abstracts ........
       \item Invest time early to save time later.
-     
   \end{itemize}
-
 \end{frame}
 
 
@@ -92,33 +91,31 @@
 \begin{frame}
   \frametitle{Sharing}
   \begin{itemize}
-      \item ShareLatex - like google docs for latex
+      \item Overleaf - like google docs for latex
       \item Save as text files - easy sharing
       \item Works with version control tools
       \item No hidden content in your editor
       \item Write in separate text files
       \item Your words express your thoughts - your thoughts are important!
-     
   \end{itemize}
-
 \end{frame}
 
 %-----------------------------------------
 \begin{frame}
   \frametitle{Including files}
   \begin{itemize}
-      \item Include many tex files by name
+      \item Include as many tex files by name as you like
       \item allows logical separation of content
-      \item Use file system structure to help you.
+      \item Use file system structure to help you
       \item \gfcb{\detokenize{\include{inc/structure}}}
       \item compile only parts of the document
       \item create reusable content
   \end{itemize}
-  
     \note{Structure to help organisation\\
    examples\\
     }
 \end{frame}
+
 %-----------------------------------------
 \begin{frame}
   \frametitle{Including Images}
@@ -137,11 +134,9 @@
       \item All Figures must appear with text reference
       \item \gfcb{\detokenize{\includegraphics[width=.2\textwidth]{figures/kart_student}}}
   \end{itemize}    
-    
     \note{
     
     }
-
 \end{frame}
 
 
@@ -149,16 +144,15 @@
 \begin{frame}
   \frametitle{Citations}
   \begin{itemize}
-      \item Using .bib file to store information
-      \item Download bibtex format from online paper Databases
+      \item Using \gfcb{.bib} file to store information
+      \item Download citations in bibtex format from online paper Databases
       \item Record abstracts and notes next to reference
       \item Uses the id from the bibtex file
       \item Can use multiple .bib files
-      
-      \item Two styles at NTNU, Harvard and Vancouver.  
-      \detokenize{\setboolean{HarvardCitations}{false}} 
-      \item CS uses Vancouver and so you set Harvard to false
-      \item \gfcb{\detokenize{~\cite{Askvall1985}}}
+      \item Two styles at NTNU, Harvard and Vancouver.  \\
+      \gfcb{\detokenize{\setboolean{HarvardCitations}{false}}}
+      \item CS uses Vancouver and so you set Harvard to false \\
+      \gfcb{\detokenize{~\cite{Askvall1985}}}
   \end{itemize}
   
     \note{
@@ -170,15 +164,13 @@
 %-----------------------------------------
 \begin{frame}[fragile]
   \frametitle{Citations}
-
   \begin{lstlisting}[breaklines]
   @misc{latex2005,
-  title={A beginner’s introduction to typesetting with LATEX},
+  title={A beginner's introduction to typesetting with LATEX},
   author={Flynn, Peter},
   year={2005},
   url={http://ctan.ijs.si/tex-archive/documentation/beginlatex/src/old/beginlatex.letter.pdf}
   \end{lstlisting}
-
 \end{frame}
 
 %-----------------------------------------
@@ -188,23 +180,19 @@
       \item Include as graphics
       \item gnuplot creates nice Latex charts
       \item Use an integrated format psTricks   
-      \item Compile graphics inline
+      \item Option to compile graphics inline
       \item Create from a csv file
       \item Scripting for large numbers of charts
       \item Including Latex math in charts
   \end{itemize}
-  
     \note{
   
     }
-
 \end{frame}
 
 %-----------------------------------------
 \begin{frame}
   \frametitle{Gnuplot}
-  
-  
 
 \begin{figure}[htp]  %t top, b bottom, p page | you can also use h to try to get the figure to appear at the current location
   \centering
@@ -222,8 +210,7 @@
 %-----------------------------------------
 \begin{frame}[fragile]
   \frametitle{Code Listing}
-We use the listings package to format code samples nicely
-
+    We use the listings package to format code samples nicely
   \begin{figure}[tp] 
   \centering
 \lstset{language=Python}
@@ -249,7 +236,7 @@ if x == 1:
 %-----------------------------------------
 \begin{frame}
 \frametitle{Math}
-If you need math there is almost not other option than Latex for handling of equations $4x = 48 $. You can refer to then as Equation~\ref{H0mean} and Equation~\ref{sum}
+If you need math there is almost no other option than Latex for handling of equations $4x = 48 $. You can refer to then as Equation~\ref{H0mean} and Equation~\ref{sum}
 \begin{equation} 
 \label{H0mean}
     H_0 : \mu_1 = \mu_2
@@ -258,7 +245,7 @@ If you need math there is almost not other option than Latex for handling of equ
 \label{sum}
     \sum_{n=1}^{\infty} 2^{-n} = 1
 \end{equation}
-refer to label not by number!
+refer to label eg \detokenize{\ref{H0mean}} not by remembering the number!
 \end{frame}
 
 %-----------------------------------------
@@ -266,7 +253,7 @@ refer to label not by number!
   \frametitle{Tables}
   \begin{itemize}
       \item Tables are annoying in Latex
-      \item However we use booktables - to read from file
+      \item However we use booktables to read from file
       \item \gfcb{\detokenize{\csvautobooktabular{figures/ageiq.csv}}}  
       \item Use tables when text will not do
   \end{itemize}
@@ -277,12 +264,9 @@ refer to label not by number!
   \caption{An example table using simplecsv.}
   \label{tab:examplecsv}
 \end{table}
-  
-  
     \note{
 
     }
-
 \end{frame}
 
 
@@ -308,9 +292,14 @@ refer to label not by number!
   \begin{itemize}
       \item Github - \url{https://github.com/COPCSE-NTNU}
       \item Masters Thesis, Bachelor Thesis, Beamer (this), and Poster
-      \item Provides the layout - DAIM vs Non DAIM
+      \item Provides the layout - Inspira vs Non Inspira
       \item Select your degree short name and language
-      \item Includes some macros, \detokenize{\CPP}, \detokenize{\todo} and \detokenize{\com}
+      \item Includes some macros, 
+      \begin{itemize}
+          \item \detokenize{\CPP{}} C plus plus \CPP{}
+          \item \detokenize{\todo{stuff}} coloured items to do
+          \item \detokenize{\com{comment}} coloured comments
+      \end{itemize}
      
   \end{itemize}
 
@@ -318,20 +307,20 @@ refer to label not by number!
 
 
 %-----------------------------------------
-\begin{frame}
-  \frametitle{Thesis Template - Data}
-  \begin{itemize}
-      \item Submission data is given in DAIM webpage
-      \item Generating your own - add the content to \gfcb{DaimData.tex}
-      \item Generate PDF with \\ \gfcb{\detokenize{\documentclass[MACS,english,DAIM]{ntnuthesis/ntnuthesis}}}
-      \item Pretty B5 book cover page
-      \item Can include image on the automated system, future feature 
-  \end{itemize}
+%\begin{frame}
+%  \frametitle{Thesis Template - Data}
+%  \begin{itemize}
+%      \item Submission data is given in Inspera webpage
+%      \item Generating your own - add the content to %\gfcb{DaimData.tex}
+%      \item Generate PDF with \\ %\gfcb{\detokenize{\documentclass[MACS,english,DAIM]{ntnuthesis/ntnuth%esis}}}
+%      \item Pretty B5 book cover page
+%      \item Can include image on the automated system, future feature 
+%  \end{itemize}
   
-    \note{Web based submission\\
-   B5 for cost saving on colour printing\\
-    }
-\end{frame}
+%    \note{Web based submission\\
+%   B5 for cost saving on colour printing\\
+%    }
+%\end{frame}
 
 
 
@@ -340,16 +329,15 @@ refer to label not by number!
 \begin{frame}
   \frametitle{Tools}
   \begin{itemize}
-      \item ShareLatex
+      \item Overleaf
       \item JabRef
-      \item Web of Knowldge, Google Scholar,...
+      \item Web of Knowledge, Google Scholar,...
       \item gnuplot
       \item Doxygen
       \item \detokenize{\newcommand{}}
       \item Creating your own latex output text from programs
       \item pympress - for presentation of the PDF in a nice way
   \end{itemize}
-  
     \note{
   
     }
